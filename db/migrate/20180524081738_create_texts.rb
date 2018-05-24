@@ -4,7 +4,7 @@ class CreateTexts < ActiveRecord::Migration[5.2]
       t.string :headline
       t.decimal :order
       t.text :sentences
-      t.integer :like, default: 0
+      t.integer :like_number, default: 0
 
       t.timestamps
     end

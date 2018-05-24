@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 2018_05_24_101323) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
-    t.integer "like", default: 0
+    t.integer "like_number", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_articles_on_title"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2018_05_24_101323) do
   create_table "images", force: :cascade do |t|
     t.string "headline"
     t.decimal "order"
-    t.integer "like", default: 0
+    t.integer "like_number", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "article_id"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2018_05_24_101323) do
     t.string "headline"
     t.decimal "order"
     t.text "sentences"
-    t.integer "like", default: 0
+    t.integer "like_number", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "article_id"
