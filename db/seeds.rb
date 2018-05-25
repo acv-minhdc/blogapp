@@ -28,5 +28,5 @@ Text.create!(order: 5, article: article, headline: 'High', sentences: ' It has s
 Text.create!(order: 7, article: article, headline: 'Above High', sentences: 'It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,')
 Text.create!(order: 8, article: article, headline: 'Hightest', sentences: ' and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.')
 
-Image.create!(order: 6, article: article, headline: 'light')
+Image.create!(order: 6, article: article, headline: 'light', url: 'http://i.pinimg.com/1200x/2c/35/f9/2c35f9fd3b1af75e02110892ea5c4c7c.jpg')
 Image.create!(order: 2, article: article, headline: 'light')

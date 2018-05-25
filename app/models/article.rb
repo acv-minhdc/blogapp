@@ -3,15 +3,16 @@ class Article < ApplicationRecord
   has_many :texts
   has_many :images
 
-  def get_texts_images_instance
+  def get_texts_images_instances
     images = Image.eager_load(:article).where(article: self)
     texts = Text.eager_load(:article).where(article: self)
     (images + texts).sort_by(&:order)
     # or (images + texts).sort_by{ |i| i.order }
+
   end
 
   def show_content
-    self.get_content.map { |item| item.class.name == 'Image' ? "<img src = #{item.url.inspect}//>".html_safe : item.sentences }
+    self.get_texts_images_instances.map { |item| item.class.name == 'Image' ? "<img src = #{item.url.inspect}//>".html_safe : item.sentences }
   end
 
   def published?
