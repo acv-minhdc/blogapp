@@ -19,8 +19,8 @@ class Article < ApplicationRecord
     return false if self.new_record?
   end
 
-  def make_finish
-    self.created_at = DateTime.now
+  def make_finish    
+    self.published? || self.created_at = DateTime.now
   end
 
   def finish?
