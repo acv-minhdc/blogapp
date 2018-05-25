@@ -17,10 +17,17 @@ class Article < ApplicationRecord
 
   def published?
     return false if self.new_record?
+    true
   end
 
-  def make_published
+  def make_finish
+    self.save if self.new_record?
     self.created_at = DateTime.now
+  end
+
+  def finish?
+    return true if self.published?
+    self.created_at < DateTime.now
   end
 
   def like
