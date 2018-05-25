@@ -2,7 +2,6 @@ class Article < ApplicationRecord
   validates :title, presence: true
   has_many :texts
   has_many :images
-  scopeL
 
   def get_texts_images_instance
     images = Image.eager_load(:article).where(article: self)
