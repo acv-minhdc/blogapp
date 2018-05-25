@@ -12,7 +12,7 @@ class Article < ApplicationRecord
   end
 
   def show_content
-    self.get_texts_images_instances.map { |item| item.class.name == 'Image' ? "<img src = #{item.url.inspect}//>".html_safe : item.sentences }
+    self.get_texts_images_instances.map { |item| item.class.name == 'Image' ? "<img src=#{item.url.inspect}//>".html_safe : item.sentences }
   end
 
   def published?
