@@ -16,7 +16,7 @@ class Article < ApplicationRecord
   end
 
   def published?
-    created_at < DateTime.now
+    return false if self.new_record?
   end
 
   def make_published
