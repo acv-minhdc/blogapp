@@ -2,6 +2,7 @@ class Article < ApplicationRecord
   validates :title, presence: true
   has_many :texts
   has_many :images
+  alias_attribute :published_time, :created_at
 
   def get_texts_images_instances
     images = Image.eager_load(:article).where(article: self)
@@ -19,7 +20,7 @@ class Article < ApplicationRecord
     return false if self.new_record?
   end
 
-  def make_finish    
+  def make_finish
     self.published? || self.created_at = DateTime.now
   end
 
