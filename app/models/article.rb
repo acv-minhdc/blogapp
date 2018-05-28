@@ -9,7 +9,6 @@ class Article < ApplicationRecord
     texts = Text.eager_load(:article).where(article: self)
     (images + texts).sort_by(&:order)
     # or (images + texts).sort_by{ |i| i.order }
-
   end
 
   def show_content
@@ -17,7 +16,7 @@ class Article < ApplicationRecord
   end
 
   def published?
-    return false if self.new_record?
+    !self.new_record?
   end
 
   def make_finish
@@ -31,6 +30,7 @@ class Article < ApplicationRecord
 
   def like
     self.like_number += 1
+    self.save
   end
 
 end
