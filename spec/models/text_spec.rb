@@ -9,11 +9,11 @@ RSpec.describe Text, type: :model do
   context 'Custom Validation' do
     it 'check order texts before save' do
       a = create(:article)
-      i = create(:text, order: 10, article: a)
-      m = build(:image, order: 10, article: a)
-      expect{m.save!}.to raise_error(ActiveRecord::RecordNotSaved)
-      expect(m.errors.messages[:order]).to include('has existed')
+      m = create(:image, order: 10, article: a)
+      i = build(:text, order: 10, article: a)
+      expect{i.save!}.to raise_error(ActiveRecord::RecordNotSaved)
+      expect(i.errors.messages[:order]).to include('has existed')
     end
   end
-  
+
 end
