@@ -13,7 +13,7 @@ FactoryBot.define do
   factory :article do
     title 'Ruby'
     factory :article_with_texts_images do
-      after(:create) do |article, _evaluator|
+      after(:create) do |article, evaluator|
         create(:text, article: article)
         create(:image, article: article)
       end

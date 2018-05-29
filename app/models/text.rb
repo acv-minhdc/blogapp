@@ -13,7 +13,7 @@ class Text < ApplicationRecord
   private
 
   def auto_check_order
-    if Image.where(article: self.article).pluck(:order).include?(self.order)
+    if Image.eager_load(:article).where(article: self.article).pluck(:order).include?(self.order)
       errors.add(:order, 'has existed')
       throw(:abort)
     end
